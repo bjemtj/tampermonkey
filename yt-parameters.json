@@ -1,6 +1,6 @@
 {
 	"ARTIST_ID" : "UC4fC5LIZfZgH8USaHKUkDwg",
-	"SEEK_EVENT": true, //Active seek function
+	"SEEK_EVENT": true,
 	"EVENT_ADDED": false,
 	"ARTIST_CORRECTED": false,
 	"REPEAT_NUMB": 35,
