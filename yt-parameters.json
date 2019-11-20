@@ -1,0 +1,10 @@
+{
+	"ARTIST_ID" : "UC4fC5LIZfZgH8USaHKUkDwg",
+	"SEEK_EVENT":false,								//Seek to Endpoint
+	"EVENT_ADDED": false,
+	"ARTIST_CORRECTED": false,
+	"REPEAT_NUMB": 35,								//Repeat tracks in page from REPEAT_NUMB to REPEAT_NUMB+5
+	"BEFORE_DURATION_START": 60,						//Play track from 00:00 to random time with minute duration from BEFORE_DURATION_START to BEFORE_DURATION_END
+	"BEFORE_DURATION_END": 80,
+	"GOTO_PERCENT": 0.8								//Percent of endpoint
+}
