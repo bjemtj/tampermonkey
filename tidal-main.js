@@ -7,6 +7,7 @@
 // @run-at       document-end
 // @updateURL    https://bjemtj.github.io/tampermonkey/tidal-main.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/tidal-main.js
+// @namespace  https://bjemtj.github.io/tampermonkey/tidal-main.js
 // @grant        none
 // ==/UserScript==
 

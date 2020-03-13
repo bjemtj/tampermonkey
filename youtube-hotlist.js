@@ -18,6 +18,13 @@
         let rdPos = Math.floor(Math.random()*elements.length);
         elements[rdPos].click();
     }
+    function doFunc_move(elements){
+        let rdPos = Math.floor(Math.random()*elements.length);
+        let element = elements[rdPos];
+        let uri = element.getAttribute("href");
+        let link = "https://music.youtube.com/"+uri;
+        window.location.assign(link);
+    }
     function doAtLeastOnce(selector, time, doFunc){
         let interval = setInterval(function(){
             let elements = document.querySelectorAll(selector);
@@ -30,7 +37,7 @@
     function run() {
         console.log("YouTube AutoPlay - HotList");
         let selector = 'ytmusic-item-thumbnail-overlay-renderer';
-        doAtLeastOnce(selector, 5000, doFunc_click);
+        doAtLeastOnce(selector, 5000, doFunc_move);
     };
 
     setTimeout(run, 5000);

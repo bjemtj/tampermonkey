@@ -7,33 +7,13 @@
 // @run-at       document-end
 // @updateURL    https://bjemtj.github.io/tampermonkey/youtube-channel.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-channel.js
+// @namespace  https://bjemtj.github.io/tampermonkey/youtube-channel.js
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
-
-    var items;
-    var getInterval;
-    function getItems(){
-        items = document.querySelectorAll('a[class="yt-simple-endpoint style-scope yt-formatted-string"][href*="watch"');
-        if(typeof(items) != 'undefined' && items != null){
-            playRandom();
-        }
-    };
-
-    function playRandom(){
-        clearInterval(getInterval);
-
-        var rdItem = items[Math.floor(Math.random()*items.length)];
-        var uri = rdItem.getAttribute("href");
-        var link = "https://music.youtube.com/"+uri;
-        console.log(link);
-        setTimeout(function(){
-            window.location.href = link;
-        }, 5000);
-    }
-
+	
     function doFunc_click(elements){
         let rdPos = Math.floor(Math.random()*elements.length);
         elements[rdPos].click();
