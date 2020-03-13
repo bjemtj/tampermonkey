@@ -5,9 +5,9 @@
 // @author       bjemtj
 // @match        *music.youtube.com/hotlist*
 // @run-at       document-end
-// @updateURL    https://bjemtj.github.io/tampermonkey/youtube-hotlist.meta.js
-// @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-hotlist.meta.js
-// @namespace  https://bjemtj.github.io/tampermonkey/youtube-hotlist.meta.js
+// @updateURL    https://bjemtj.github.io/tampermonkey/youtube-hotlist.js
+// @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-hotlist.js
+// @namespace  https://bjemtj.github.io/tampermonkey/youtube-hotlist.js
 // @grant        none
 // ==/UserScript==
 
