@@ -7,6 +7,7 @@
 // @run-at       document-end
 // @updateURL    https://bjemtj.github.io/tampermonkey/youtube-hotlist.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-hotlist.js
+// @namespace  https://bjemtj.github.io/tampermonkey/youtube-hotlist.js
 // @grant        none
 // ==/UserScript==
 
