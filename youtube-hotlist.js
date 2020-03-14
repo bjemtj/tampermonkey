@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - HotList
-// @version      2.0.0
+// @version      2.0.1
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/hotlist*
@@ -35,7 +35,7 @@
     }
     function run() {
         console.log("YouTube AutoPlay - HotList");
-        let selector = 'ytmusic-item-thumbnail-overlay-renderer';
+        let selector = 'a[class="yt-simple-endpoint style-scope ytmusic-full-bleed-item-renderer"]';
         doAtLeastOnce(selector, 5000, doFunc_move);
     };
 
