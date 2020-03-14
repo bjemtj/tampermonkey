@@ -7,7 +7,6 @@
 // @run-at       document-end
 // @updateURL    https://bjemtj.github.io/tampermonkey/youtube-channel.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-channel.js
-// @namespace  https://bjemtj.github.io/tampermonkey/youtube-channel.js
 // @grant        none
 // ==/UserScript==
 
