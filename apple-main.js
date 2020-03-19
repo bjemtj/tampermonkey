@@ -68,7 +68,6 @@
     function run() {
         console.log("Apple Music AutoPlay - MANAGER");
 
-        $(window).off('beforeunload.windowReload');
         clickPlay();
         setRepeatAll();
         setInterval(clickNext,33*1000);
