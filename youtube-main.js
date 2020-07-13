@@ -109,7 +109,7 @@
                             var rndDuration = (Math.floor(Math.random() * PARAMS.LISTEN_DURATION_RANGE) + PARAMS.LISTEN_DURATION);
                             setTimeout(seekSliderBar, rndDuration*1000, PARAMS.GOTO_PERCENT, rndDuration);
                         }else{
-                            if(Math.random() > 0.6){
+                            if(Math.random() > 0.7){
                                 window.location.href = PARAMS.LINKS.HOTLIST;
                             }else{
                                 window.location.href = PARAMS.LINKS.FANPAGE;
