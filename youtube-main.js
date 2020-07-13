@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - MAIN
-// @version      2.1.0
+// @version      2.1.1
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/watch*
@@ -16,7 +16,7 @@
     var PARAMS = {
         "ARTIST_ID" : "UC4fC5LIZfZgH8USaHKUkDwg",
         "SEEK_EVENT": true,
-        "REPEAT_TIMES": 10,
+        "REPEAT_TIMES": 5,
         "REPEAT_TIMES_RANGE": 5,
         "LISTEN_DURATION_RANGE": 10,
         "LISTEN_DURATION": 60,
