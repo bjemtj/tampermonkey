@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - Channel
-// @version      2.0.0
+// @version      2.0.2
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/channel*
@@ -34,7 +34,7 @@
         }, time);
     }
     function run() {
-        console.log("YouTube AutoPlay - HotList");
+        console.log("YouTube AutoPlay - Channel");
         let subcribeSelector = 'paper-button.ytmusic-subscribe-button-renderer';
         doAtLeastOnce(subcribeSelector, 5000, doFunc_click);
         let tracksSelector = 'a[class="yt-simple-endpoint style-scope yt-formatted-string"][href*="watch"';

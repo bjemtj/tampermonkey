@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - MAIN
-// @version      2.0.0
+// @version      2.1.0
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/watch*
@@ -19,8 +19,13 @@
         "REPEAT_TIMES": 10,
         "REPEAT_TIMES_RANGE": 5,
         "LISTEN_DURATION_RANGE": 10,
-        "LISTEN_DURATION": 110,
-        "GOTO_PERCENT": 0.99
+        "LISTEN_DURATION": 60,
+        "GOTO_PERCENT": 0.99,
+        "LINKS":{
+            "ARTIST" : "https://music.youtube.com/channel/UC4fC5LIZfZgH8USaHKUkDwg",
+            "HOTLIST": "https://music.youtube.com/hotlist",
+            "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
+        }
     };
 
 
@@ -104,11 +109,15 @@
                             var rndDuration = (Math.floor(Math.random() * PARAMS.LISTEN_DURATION_RANGE) + PARAMS.LISTEN_DURATION);
                             setTimeout(seekSliderBar, rndDuration*1000, PARAMS.GOTO_PERCENT, rndDuration);
                         }else{
-                            window.location.href = 'https://music.youtube.com/hotlist';
+                            if(Math.random() > 0.6){
+                                window.location.href = PARAMS.LINKS.HOTLIST;
+                            }else{
+                                window.location.href = PARAMS.LINKS.FANPAGE;
+                            }
                         }
                         PARAMS.REPEAT_NUMB--;
                     }else{
-                        window.location.href = 'https://music.youtube.com/channel/' + PARAMS.ARTIST_ID;
+                        window.location.href = PARAMS.LINKS.ARTIST;
                     }
                 }
             });
