@@ -1,18 +1,18 @@
 // ==UserScript==
-// @name         YouTube AutoPlay - Channel
+// @name         YouTube AutoPlay - Others
 // @version      2.1.0
 // @description  This script Autoplay Youtube
 // @author       bjemtj
-// @match        *music.youtube.com/channel*
+// @match        *music.youtube.com/explore*
 // @run-at       document-end
-// @updateURL    https://bjemtj.github.io/tampermonkey/youtube-channel.js
-// @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-channel.js
+// @updateURL    https://bjemtj.github.io/tampermonkey/youtube-others.js
+// @downloadURL  https://bjemtj.github.io/tampermonkey/youtube-others.js
 // @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
-	
+
     function doFunc_click(elements){
         let rdPos = Math.floor(Math.random()*elements.length);
         elements[rdPos].click();
@@ -34,11 +34,9 @@
         }, time);
     }
     function run() {
-        console.log("YouTube AutoPlay - Channel");
-        let subcribeSelector = 'paper-button.ytmusic-subscribe-button-renderer';
-        doAtLeastOnce(subcribeSelector, 5000, doFunc_click);
-        let tracksSelector = 'a[class="yt-simple-endpoint style-scope yt-formatted-string"][href*="watch"';
-        doAtLeastOnce(tracksSelector, 5000, doFunc_move);
+        console.log("YouTube AutoPlay - Others");
+        let selector = 'a[href*="watch?"]';
+        doAtLeastOnce(selector, 5000, doFunc_move);
     };
 
     setTimeout(run, 5000);
