@@ -16,14 +16,14 @@
     var PARAMS = {
         "ARTIST_ID" : "UC4fC5LIZfZgH8USaHKUkDwg",
         "SEEK_EVENT": true,
-        "REPEAT_TIMES": 10,
+        "REPEAT_TIMES": 5,
         "REPEAT_TIMES_RANGE": 5,
         "LISTEN_DURATION_RANGE": 10,
-        "LISTEN_DURATION": 60,
+        "LISTEN_DURATION": 80,
         "GOTO_PERCENT": 0.99,
         "LINKS":{
             "ARTIST" : "https://music.youtube.com/channel/UC4fC5LIZfZgH8USaHKUkDwg",
-            "HOTLIST": "https://music.youtube.com/explore",
+            "OTHERS": "https://music.youtube.com/explore",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         }
     };
@@ -109,8 +109,8 @@
                             var rndDuration = (Math.floor(Math.random() * PARAMS.LISTEN_DURATION_RANGE) + PARAMS.LISTEN_DURATION);
                             setTimeout(seekSliderBar, rndDuration*1000, PARAMS.GOTO_PERCENT, rndDuration);
                         }else{
-                            if(Math.random() > 0.6){
-                                window.location.href = PARAMS.LINKS.HOTLIST;
+                            if(Math.random() > 0.8){
+                                window.location.href = PARAMS.LINKS.OTHERS;
                             }else{
                                 window.location.href = PARAMS.LINKS.FANPAGE;
                             }
