@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - MAIN
-// @version      2.1.0
+// @version      2.1.1
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/watch*
