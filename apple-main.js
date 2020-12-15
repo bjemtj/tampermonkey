@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Apple Music AutoPlay - MANAGER
-// @version      2.0.1
+// @version      2.1.1
 // @description  This script Autoplay Apple Music
 // @author       bjemtj
-// @match        *https://beta.music.apple.com/*
+// @match        *https://music.apple.com/*
 // @run-at       document-end
 // @updateURL    https://bjemtj.github.io/tampermonkey/apple-main.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/apple-main.js
@@ -12,7 +12,13 @@
 
 (function() {
     'use strict';
-
+    
+    //Auto confirm Alert
+    var oldConfirm = window.confirm;
+    window.confirm = function (e) {
+        return true;
+    };
+    
     function setRepeatAll(){
         var loopClickRepeat = setInterval(function(){
             var repeatElm = document.querySelector(".button-reset.web-chrome-playback-controls__secondary-btn[aria-label^='Repeat']");
