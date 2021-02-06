@@ -14,7 +14,7 @@
     'use strict';
 
     var PARAMS = {
-        "LISTEN_DURATION": 1800,
+        "LISTEN_DURATION": 600,
         "LISTEN_OTHERS_DURATION": 120,
         "LINKS":{
             "ARTIST" : "https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
