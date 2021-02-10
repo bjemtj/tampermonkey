@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.1.2
+// @version      2.1.3
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -110,13 +110,13 @@
 
     function newPlay(){
 
-        if(getActiveURL() == 2)
+        if(getActiveURL() == 1)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
             setTimeout(gotoURL, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.ARTIST_SUB);
-        }else if(getActiveURL() == 1)
+        }else if(getActiveURL() == 2)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
