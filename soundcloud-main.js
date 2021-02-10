@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.1.1
+// @version      2.1.2
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -20,7 +20,7 @@
             "ARTIST" : "https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
             "ARTIST_SUB" : "/terence-garza/sets/guitar-in-country-vol-01",
             "OTHERS": "https://soundcloud.com/discover",
-            "OTHERS_SUB": "/discover",
+            "OTHERS_SUB": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         }
     };
