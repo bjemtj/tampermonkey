@@ -110,13 +110,13 @@
 
     function newPlay(){
 
-        if(getActiveURL() == 1)
+        if(getActiveURL() == 2)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
             setTimeout(gotoURL, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.ARTIST_SUB);
-        }else if(getActiveURL() == 2)
+        }else if(getActiveURL() == 1)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
