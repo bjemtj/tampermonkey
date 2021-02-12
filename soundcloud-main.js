@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.1.5
+// @version      2.1.6
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -99,7 +99,7 @@
         },5 * 1000);
     }
     function gotoURL(url) {
-        var a = document.createElement('a')
+        var a = document.createElement('a');
         var link = document.createTextNode(url);
         a.appendChild(link);
         a.title = url;
@@ -108,7 +108,10 @@
         a.click();
         newPlay();
     }
-
+    function hardReload(url) {
+        window.location.href = url;
+    }
+    
     function newPlay(){
 
         if(getActiveURL() == 1)
@@ -116,13 +119,13 @@
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
-            setTimeout(gotoURL, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS_SUB);
+            setTimeout(hardReload, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS_SUB); //Hard reload after listen time
         }else if(getActiveURL() == 2)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
-            setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, PARAMS.LINKS.ARTIST_SUB);
+            setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, PARAMS.LINKS.ARTIST_SUB); //Go to Artist after break time
         }
     }
 
