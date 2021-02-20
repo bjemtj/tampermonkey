@@ -27,11 +27,11 @@
 
     function getActiveURL(){
         console.log(window.location.href);
-        switch(window.location.href)
+        switch(true)
         {
-            case PARAMS.LINKS.ARTIST:
+            case PARAMS.LINKS.ARTISTS.indexOf(window.location.href) >= 0:
                 return 1;
-            case PARAMS.LINKS.OTHERS:
+            case window.location.href == PARAMS.LINKS.OTHERS:
                 return 2;
             default:
                 return 0;
