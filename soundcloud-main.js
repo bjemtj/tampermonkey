@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.1.6
+// @version      2.1.7
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -14,13 +14,12 @@
     'use strict';
 
     var PARAMS = {
+        "DOMAIN": "https://soundcloud.com",
         "LISTEN_DURATION": 600,
         "LISTEN_OTHERS_DURATION": 120,
         "LINKS":{
             "ARTIST" : "https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
-            "ARTIST_SUB" : "/terence-garza/sets/guitar-in-country-vol-01",
             "OTHERS": "https://soundcloud.com/discover",
-            "OTHERS_SUB": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         }
     };
@@ -119,13 +118,16 @@
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
-            setTimeout(hardReload, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS_SUB); //Hard reload after listen time
+            
+            setTimeout(hardReload, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS); //Hard reload after listen time
         }else if(getActiveURL() == 2)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
-            setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, PARAMS.LINKS.ARTIST_SUB); //Go to Artist after break time
+            
+            let artistPath = PARAMS.LINKS.ARTIST.replace(PARAMS.DOMAIN,"");
+            setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, artistPath); //Go to Artist path after break time
         }
     }
 
