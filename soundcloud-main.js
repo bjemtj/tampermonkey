@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.1.7
+// @version      2.2.7
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -18,37 +18,12 @@
         "LISTEN_DURATION": 600,
         "LISTEN_OTHERS_DURATION": 120,
         "LINKS":{
-            "ARTIST" : "https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
+            "ARTISTS" : ["https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
+                         "https://soundcloud.com/discover/sets/charts-top:hiphoprap:us"],
             "OTHERS": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         }
     };
-
-
-    var ARTIST_CORRECTED = false;
-    var EVENT_ADDED = false;
-
-    function setAutoPlay(toggle){
-        var autoPlayElm = document.getElementById("automix");
-        var checked = autoPlayElm.getAttribute("checked");
-        if(toggle != (checked == null ? false : true)){
-            autoPlayElm.click();
-        }
-    };
-
-    function setRepeatAll(){
-        var repeatElm = document.querySelector(".repeat.style-scope.ytmusic-player-bar");
-        var loopClickRepeat = setInterval(function(){
-            var repeatLabel = repeatElm.getAttribute("aria-label");
-            if(repeatLabel == "Repeat all"){
-                clearInterval(loopClickRepeat);
-            }else{
-                repeatElm.click();
-            }
-
-        }, 2000);
-    };
-
 
     function getActiveURL(){
         console.log(window.location.href);
@@ -126,7 +101,8 @@
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
             
-            let artistPath = PARAMS.LINKS.ARTIST.replace(PARAMS.DOMAIN,"");
+            let rndArtist = PARAMS.LINKS.ARTISTS[Math.floor(Math.random() * PARAMS.LINKS.ARTISTS.length)];
+            let artistPath = rndArtist.replace(PARAMS.DOMAIN, "");
             setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, artistPath); //Go to Artist path after break time
         }
     }
