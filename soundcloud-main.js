@@ -19,7 +19,7 @@
         "LISTEN_OTHERS_DURATION": 120,
         "LINKS":{
             "ARTISTS" : ["https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
-                         "https://soundcloud.com/discover/sets/charts-top:hiphoprap:us"],
+                         "https://soundcloud.com/katheryn-doyle-a/sets/communication-time"],
             "OTHERS": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         }
