@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.3.0
+// @version      2.3.1
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -119,5 +119,5 @@
     };
 
     setTimeout(run, 5000);
-    setInterval(updateStatus, 60000);
+    setInterval(updateStatus, 120000);
 })();
