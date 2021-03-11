@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.2.8
+// @version      2.3.0
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -8,6 +8,7 @@
 // @updateURL    https://bjemtj.github.io/tampermonkey/soundcloud-main.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/soundcloud-main.js
 // @grant        none
+// @require      https://l2.io/ip.js?var=myip
 // ==/UserScript==
 
 (function() {
@@ -22,11 +23,17 @@
                          "https://soundcloud.com/katheryn-doyle-a/sets/communication-time"],
             "OTHERS": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
-        }
+        },
+        "UPDATE_API": "https://script.google.com/macros/s/AKfycbyaTbgkqRWkFTu5dlcsrG9YSHaTHdNpKsrTrhsOCFyN_CiSBBmA9rUc-Q/exec"
     };
 
+    function updateStatus(){
+        var getURI = PARAMS.UPDATE_API + "?ipaddress=" + myip + "&state=2";
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', getURI, true);
+        xhr.send(null);
+    }
     function getActiveURL(){
-        console.log(window.location.href);
         switch(true)
         {
             case PARAMS.LINKS.ARTISTS.indexOf(window.location.href) >= 0:
@@ -112,4 +119,5 @@
     };
 
     setTimeout(run, 5000);
+    setInterval(updateStatus, 60000);
 })();
