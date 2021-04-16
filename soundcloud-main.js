@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.3.1
+// @version      2.4.1
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -8,7 +8,6 @@
 // @updateURL    https://bjemtj.github.io/tampermonkey/soundcloud-main.js
 // @downloadURL  https://bjemtj.github.io/tampermonkey/soundcloud-main.js
 // @grant        none
-// @require      https://l2.io/ip.js?var=myip
 // ==/UserScript==
 
 (function() {
@@ -24,13 +23,29 @@
             "OTHERS": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         },
-        "UPDATE_API": "https://script.google.com/macros/s/AKfycbyaTbgkqRWkFTu5dlcsrG9YSHaTHdNpKsrTrhsOCFyN_CiSBBmA9rUc-Q/exec"
+        "UPDATE_API": "https://script.google.com/macros/s/AKfycbyaTbgkqRWkFTu5dlcsrG9YSHaTHdNpKsrTrhsOCFyN_CiSBBmA9rUc-Q/exec",
+        "GET_IP_URI": "https://api.ipify.org/"
     };
 
     function updateStatus(){
-        var getURI = PARAMS.UPDATE_API + "?ipaddress=" + myip + "&state=2";
+
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', getURI, true);
+        xhr.open('GET', PARAMS.GET_IP_URI, true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200 || (xhr.status === 0 && xhr.responseText !== '')) {
+                    var getURI = PARAMS.UPDATE_API + "?ipaddress=" + xhr.responseText + "&state=2";
+                    console.log(getURI);
+
+                    var xhrSendStatus = new XMLHttpRequest();
+                    xhrSendStatus.open('GET', getURI, true);
+                    xhrSendStatus.send(null);
+                }
+                else {
+                    console.log("Get IP address failed!");
+                }
+            }
+        };
         xhr.send(null);
     }
     function getActiveURL(){
@@ -92,7 +107,7 @@
     function hardReload(url) {
         window.location.href = url;
     }
-    
+
     function newPlay(){
 
         if(getActiveURL() == 1)
@@ -100,14 +115,14 @@
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
-            
+
             setTimeout(hardReload, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS); //Hard reload after listen time
         }else if(getActiveURL() == 2)
         {
             setTimeout(clickPlay, 5000);
             setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
-            
+
             let rndArtist = PARAMS.LINKS.ARTISTS[Math.floor(Math.random() * PARAMS.LINKS.ARTISTS.length)];
             let artistPath = rndArtist.replace(PARAMS.DOMAIN, "");
             setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, artistPath); //Go to Artist path after break time
@@ -118,6 +133,8 @@
         newPlay();
     };
 
+    //#### Main thread
     setTimeout(run, 5000);
     setInterval(updateStatus, 120000);
+
 })();
