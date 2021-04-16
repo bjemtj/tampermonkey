@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
 // @version      2.4.1
-// @description  This script Autoplay Youtube
+// @description  This script Autoplay SoundCloud
 // @author       bjemtj
 // @match        *soundcloud.com/*
 // @run-at       document-end
