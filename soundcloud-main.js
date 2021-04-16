@@ -135,6 +135,9 @@
 
     //#### Main thread
     setTimeout(run, 5000);
+    
+    
+    setTimeout(updateStatus, 2000);
     setInterval(updateStatus, 120000);
 
 })();
