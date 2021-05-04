@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.4.1
+// @version      2.4.2
 // @description  This script Autoplay SoundCloud
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -68,9 +68,11 @@
                 clearInterval(loopClickShuffleRepeat);
             }
         },5 * 1000);
-    }
+    };
     function clickLike(){
+        var loopLikeCount = 0;
         var loopClickLikeRepeat = setInterval(function(){
+            loopLikeCount++;
             let btnRender = document.querySelector("button[aria-label='Like']");
             if(btnRender != null){
                 if(Math.random() < 0.5)
@@ -78,9 +80,64 @@
                     btnRender.click();
                 }
                 clearInterval(loopClickLikeRepeat);
+            }else if(loopLikeCount > 3){
+                let unlikeBtnRender = document.querySelector("button[aria-label='Unlike']");
+                if(unlikeBtnRender != null){  
+                    if(Math.random() < 0.5)
+                    {
+                        unlikeBtnRender.click();
+                    }
+                } 
+                clearInterval(loopClickLikeRepeat);
             }
         },5 * 1000);
-    }
+    };
+    function clickRepost(){
+        var loopRepostCount = 0;
+        var loopClickRepostRepeat = setInterval(function(){
+            loopRepostCount++;
+            let btnRender = document.querySelector("button[aria-label='Repost']");
+            if(btnRender != null){
+                if(Math.random() < 0.5)
+                {
+                    btnRender.click();
+                }
+                clearInterval(loopClickRepostRepeat);
+            }else if(loopRepostCount > 3){
+                let unRepostBtnRender = document.querySelector("button[aria-label*='Unpost']");
+                if(unRepostBtnRender != null){  
+                    if(Math.random() < 0.5)
+                    {
+                        unRepostBtnRender.click();
+                    }
+                } 
+                clearInterval(loopClickRepostRepeat);
+            }
+        },5 * 1000);
+    };
+    function clickFollow(){
+        var loopFollowCount = 0;
+        var loopClickFollowRepeat = setInterval(function(){
+            loopFollowCount++;
+            let btnRender = document.querySelector("button[aria-label='Follow']");
+            if(btnRender != null){
+                if(Math.random() < 0.5)
+                {
+                    btnRender.click();
+                }
+                clearInterval(loopClickFollowRepeat);
+            }else if(loopFollowCount > 3){
+                let unFollowBtnRender = document.querySelector("button[aria-label='Unfollow']");
+                if(unFollowBtnRender != null){  
+                    if(Math.random() < 0.5)
+                    {
+                        unFollowBtnRender.click();
+                    }
+                } 
+                clearInterval(loopClickFollowRepeat);
+            }
+        },5 * 1000);
+    };
 
     function clickPlay(){
         var loopClickPlayRepeat = setInterval(function(){
@@ -93,7 +150,7 @@
                 clearInterval(loopClickPlayRepeat);
             }
         },5 * 1000);
-    }
+    };
     function gotoURL(url) {
         var a = document.createElement('a');
         var link = document.createTextNode(url);
@@ -103,31 +160,35 @@
         document.body.appendChild(a);
         a.click();
         newPlay();
-    }
+    };
     function hardReload(url) {
         window.location.href = url;
-    }
+    };
 
     function newPlay(){
 
         if(getActiveURL() == 1)
         {
             setTimeout(clickPlay, 5000);
-            setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
+            setTimeout(clickLike, 5000);
+            setTimeout(clickRepost, 5000);
+            setTimeout(clickFollow, 5000);
 
             setTimeout(hardReload, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS); //Hard reload after listen time
         }else if(getActiveURL() == 2)
         {
             setTimeout(clickPlay, 5000);
-            setTimeout(clickLike, 5000);
             setTimeout(clickShuffle, 5000);
+            setTimeout(clickLike, 5000);
+            setTimeout(clickRepost, 5000);
+            setTimeout(clickFollow, 5000);
 
             let rndArtist = PARAMS.LINKS.ARTISTS[Math.floor(Math.random() * PARAMS.LINKS.ARTISTS.length)];
             let artistPath = rndArtist.replace(PARAMS.DOMAIN, "");
             setTimeout(gotoURL, PARAMS.LISTEN_OTHERS_DURATION * 1000, artistPath); //Go to Artist path after break time
         }
-    }
+    };
 
     function run() {
         newPlay();
