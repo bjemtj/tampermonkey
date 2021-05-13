@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.4.2
+// @version      2.4.3
 // @description  This script Autoplay SoundCloud
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -16,7 +16,7 @@
     var PARAMS = {
         "DOMAIN": "https://soundcloud.com",
         "LISTEN_DURATION": 600,
-        "LISTEN_OTHERS_DURATION": 120,
+        "LISTEN_OTHERS_DURATION": 240,
         "LINKS":{
             "ARTISTS" : ["https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
                          "https://soundcloud.com/user-930237602/sets/communication-time"],
