@@ -16,7 +16,7 @@
     var PARAMS = {
         "DOMAIN": "https://soundcloud.com",
         "LISTEN_DURATION": 600,
-        "LISTEN_OTHERS_DURATION": 240,
+        "LISTEN_OTHERS_DURATION": 120,
         "LINKS":{
             "ARTISTS" : ["https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
                          "https://soundcloud.com/user-930237602/sets/communication-time",
