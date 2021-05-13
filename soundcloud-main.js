@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.4.3
+// @version      2.4.4
 // @description  This script Autoplay SoundCloud
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -19,7 +19,8 @@
         "LISTEN_OTHERS_DURATION": 240,
         "LINKS":{
             "ARTISTS" : ["https://soundcloud.com/terence-garza/sets/guitar-in-country-vol-01",
-                         "https://soundcloud.com/user-930237602/sets/communication-time"],
+                         "https://soundcloud.com/user-930237602/sets/communication-time",
+                        "https://soundcloud.com/bernadette-hopper/sets/forgot-wedding"],
             "OTHERS": "https://soundcloud.com/discover",
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         },
