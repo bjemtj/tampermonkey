@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.4.4
+// @version      2.4.5
 // @description  This script Autoplay SoundCloud
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -76,7 +76,7 @@
             loopLikeCount++;
             let btnRender = document.querySelector("button[aria-label='Like']");
             if(btnRender != null){
-                if(Math.random() < 0.5)
+                if(Math.random() < 0.3)
                 {
                     btnRender.click();
                 }
@@ -84,7 +84,7 @@
             }else if(loopLikeCount > 3){
                 let unlikeBtnRender = document.querySelector("button[aria-label='Unlike']");
                 if(unlikeBtnRender != null){  
-                    if(Math.random() < 0.5)
+                    if(Math.random() < 0.2)
                     {
                         unlikeBtnRender.click();
                     }
@@ -99,7 +99,7 @@
             loopRepostCount++;
             let btnRender = document.querySelector("button[aria-label='Repost']");
             if(btnRender != null){
-                if(Math.random() < 0.5)
+                if(Math.random() < 0.3)
                 {
                     btnRender.click();
                 }
@@ -107,7 +107,7 @@
             }else if(loopRepostCount > 3){
                 let unRepostBtnRender = document.querySelector("button[aria-label*='Unpost']");
                 if(unRepostBtnRender != null){  
-                    if(Math.random() < 0.5)
+                    if(Math.random() < 0.2)
                     {
                         unRepostBtnRender.click();
                     }
@@ -122,7 +122,7 @@
             loopFollowCount++;
             let btnRender = document.querySelector("button[aria-label='Follow']");
             if(btnRender != null){
-                if(Math.random() < 0.5)
+                if(Math.random() < 0.3)
                 {
                     btnRender.click();
                 }
@@ -130,7 +130,7 @@
             }else if(loopFollowCount > 3){
                 let unFollowBtnRender = document.querySelector("button[aria-label='Unfollow']");
                 if(unFollowBtnRender != null){  
-                    if(Math.random() < 0.5)
+                    if(Math.random() < 0.2)
                     {
                         unFollowBtnRender.click();
                     }
