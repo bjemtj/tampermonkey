@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         SoundCloud AutoPlay - MAIN
-// @version      2.4.6
+// @version      2.5.6
 // @description  This script Autoplay SoundCloud
 // @author       bjemtj
 // @match        *soundcloud.com/*
@@ -14,6 +14,7 @@
     'use strict';
 
     var PARAMS = {
+        "DELAY": 5000,
         "DOMAIN": "https://soundcloud.com",
         "LISTEN_DURATION": 600,
         "LISTEN_OTHERS_DURATION": 300,
@@ -25,7 +26,10 @@
             "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
         },
         "UPDATE_API": "https://script.google.com/macros/s/AKfycbyaTbgkqRWkFTu5dlcsrG9YSHaTHdNpKsrTrhsOCFyN_CiSBBmA9rUc-Q/exec",
-        "GET_IP_URI": "https://api.ipify.org/"
+        "GET_IP_URI": "https://api.ipify.org/",
+        "LIKE_RATE": 0.4,
+        "REPOST_RATE": 0.4,
+        "FOLLOW_RATE": 0.4
     };
 
     function updateStatus(){
@@ -68,7 +72,7 @@
                 btnRender.click();
                 clearInterval(loopClickShuffleRepeat);
             }
-        },5 * 1000);
+        }, PARAMS.DELAY);
     };
     function clickLike(){
         var loopLikeCount = 0;
@@ -76,7 +80,7 @@
             loopLikeCount++;
             let btnRender = document.querySelector("button[aria-label='Like']");
             if(btnRender != null){
-                if(Math.random() < 0.3)
+                if(Math.random() < PARAMS.LIKE_RATE)
                 {
                     btnRender.click();
                 }
@@ -84,14 +88,14 @@
             }else if(loopLikeCount > 3){
                 let unlikeBtnRender = document.querySelector("button[aria-label='Unlike']");
                 if(unlikeBtnRender != null){  
-                    if(Math.random() < 0.2)
+                    if(Math.random() < PARAMS.LIKE_RATE)
                     {
                         unlikeBtnRender.click();
                     }
                 } 
                 clearInterval(loopClickLikeRepeat);
             }
-        },5 * 1000);
+        }, PARAMS.DELAY);
     };
     function clickRepost(){
         var loopRepostCount = 0;
@@ -99,7 +103,7 @@
             loopRepostCount++;
             let btnRender = document.querySelector("button[aria-label='Repost']");
             if(btnRender != null){
-                if(Math.random() < 0.3)
+                if(Math.random() < PARAMS.REPOST_RATE)
                 {
                     btnRender.click();
                 }
@@ -107,14 +111,14 @@
             }else if(loopRepostCount > 3){
                 let unRepostBtnRender = document.querySelector("button[aria-label*='Unpost']");
                 if(unRepostBtnRender != null){  
-                    if(Math.random() < 0.2)
+                    if(Math.random() < PARAMS.REPOST_RATE)
                     {
                         unRepostBtnRender.click();
                     }
                 } 
                 clearInterval(loopClickRepostRepeat);
             }
-        },5 * 1000);
+        }, PARAMS.DELAY);
     };
     function clickFollow(){
         var loopFollowCount = 0;
@@ -122,7 +126,7 @@
             loopFollowCount++;
             let btnRender = document.querySelector("button[aria-label='Follow']");
             if(btnRender != null){
-                if(Math.random() < 0.3)
+                if(Math.random() < PARAMS.FOLLOW_RATE)
                 {
                     btnRender.click();
                 }
@@ -130,14 +134,14 @@
             }else if(loopFollowCount > 3){
                 let unFollowBtnRender = document.querySelector("button[aria-label='Unfollow']");
                 if(unFollowBtnRender != null){  
-                    if(Math.random() < 0.2)
+                    if(Math.random() < PARAMS.FOLLOW_RATE)
                     {
                         unFollowBtnRender.click();
                     }
                 } 
                 clearInterval(loopClickFollowRepeat);
             }
-        },5 * 1000);
+        }, PARAMS.DELAY);
     };
 
     function clickPlay(){
@@ -150,7 +154,7 @@
                 console.log(getActiveURL() + " play");
                 clearInterval(loopClickPlayRepeat);
             }
-        },5 * 1000);
+        }, PARAMS.DELAY);
     };
     function gotoURL(url) {
         var a = document.createElement('a');
@@ -170,20 +174,20 @@
 
         if(getActiveURL() == 1)
         {
-            setTimeout(clickPlay, 5000);
-            setTimeout(clickShuffle, 5000);
-            setTimeout(clickLike, 5000);
-            setTimeout(clickRepost, 5000);
-            setTimeout(clickFollow, 5000);
+            setTimeout(clickPlay, PARAMS.DELAY);
+            setTimeout(clickShuffle, PARAMS.DELAY);
+            setTimeout(clickLike, PARAMS.DELAY);
+            setTimeout(clickRepost, PARAMS.DELAY);
+            setTimeout(clickFollow, PARAMS.DELAY);
 
             setTimeout(hardReload, PARAMS.LISTEN_DURATION * 1000, PARAMS.LINKS.OTHERS); //Hard reload after listen time
         }else if(getActiveURL() == 2)
         {
-            setTimeout(clickPlay, 5000);
-            setTimeout(clickShuffle, 5000);
-            setTimeout(clickLike, 5000);
-            setTimeout(clickRepost, 5000);
-            setTimeout(clickFollow, 5000);
+            setTimeout(clickPlay, PARAMS.DELAY);
+            setTimeout(clickShuffle, PARAMS.DELAY);
+            setTimeout(clickLike, PARAMS.DELAY);
+            setTimeout(clickRepost, PARAMS.DELAY);
+            setTimeout(clickFollow, PARAMS.DELAY);
 
             let rndArtist = PARAMS.LINKS.ARTISTS[Math.floor(Math.random() * PARAMS.LINKS.ARTISTS.length)];
             let artistPath = rndArtist.replace(PARAMS.DOMAIN, "");
@@ -196,7 +200,7 @@
     };
 
     //#### Main thread
-    setTimeout(run, 5000);
+    setTimeout(run, PARAMS.DELAY);
     
     
     setTimeout(updateStatus, 2000);
