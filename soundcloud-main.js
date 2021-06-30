@@ -28,7 +28,7 @@
         "UPDATE_API": "https://script.google.com/macros/s/AKfycbyaTbgkqRWkFTu5dlcsrG9YSHaTHdNpKsrTrhsOCFyN_CiSBBmA9rUc-Q/exec",
         "GET_IP_URI": "https://api.ipify.org/",
         "LIKE_RATE": 0.4,
-        "REPOST_RATE": 0.4,
+        "REPOST_RATE": 0.5,
         "FOLLOW_RATE": 0.4
     };
 
