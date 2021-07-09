@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - MAIN
-// @version      2.1.1
+// @version      2.1.2
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/watch*
@@ -109,7 +109,7 @@
                             var rndDuration = (Math.floor(Math.random() * PARAMS.LISTEN_DURATION_RANGE) + PARAMS.LISTEN_DURATION);
                             setTimeout(seekSliderBar, rndDuration*1000, PARAMS.GOTO_PERCENT, rndDuration);
                         }else{
-                            if(Math.random() > 0.8){
+                            if(Math.random() > 0){
                                 window.location.href = PARAMS.LINKS.OTHERS;
                             }else{
                                 window.location.href = PARAMS.LINKS.FANPAGE;
