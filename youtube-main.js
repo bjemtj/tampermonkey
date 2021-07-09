@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         YouTube AutoPlay - MAIN
-// @version      2.1.2
+// @version      3.0.0
 // @description  This script Autoplay Youtube
 // @author       bjemtj
 // @match        *music.youtube.com/watch*
@@ -14,23 +14,24 @@
     'use strict';
 
     var PARAMS = {
-        "ARTIST_ID" : "UC4fC5LIZfZgH8USaHKUkDwg",
         "SEEK_EVENT": true,
         "REPEAT_TIMES": 5,
         "REPEAT_TIMES_RANGE": 5,
         "LISTEN_DURATION_RANGE": 10,
-        "LISTEN_DURATION": 80,
+        "LISTEN_DURATION": 120,
         "GOTO_PERCENT": 0.99,
         "LINKS":{
-            "ARTIST" : "https://music.youtube.com/channel/UC4fC5LIZfZgH8USaHKUkDwg",
             "OTHERS": "https://music.youtube.com/explore",
-            "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal"
+            "FANPAGE": "https://www.facebook.com/pg/Musicfme/posts/?ref=page_internal",
+            "KEYWORDS": ["guitar+in+country%2C+vol.+01"]
         }
     };
 
 
     var ARTIST_CORRECTED = false;
     var EVENT_ADDED = false;
+    
+    PARAMS.REPEAT_NUMB = (Math.floor(Math.random() * PARAMS.REPEAT_TIMES_RANGE) + PARAMS.REPEAT_TIMES);
 
     function setAutoPlay(toggle){
         var autoPlayElm = document.getElementById("automix");
@@ -78,7 +79,6 @@
     function seekSliderBar(gotoPercent, listenDuration){
         var ytplayer = document.getElementById("movie_player");
 
-
         if(PARAMS.SEEK_EVENT){
             var totalDuration = hmsToSecondsOnly(document.querySelector('.time-info.style-scope.ytmusic-player-bar').textContent.split(" / ")[1].trim());
             ytplayer.seekTo(totalDuration * gotoPercent, true);
@@ -86,8 +86,8 @@
 
         if(!EVENT_ADDED){
             ytplayer.addEventListener("onStateChange", function(state){
-                if(state === 0){
-                    if(ARTIST_CORRECTED){
+                if(state === 0){ //end of track
+                    if(PARAMS.LINKS.KEYWORDS.indexOf(window.location.href) >= 0){
                         console.log(PARAMS.REPEAT_NUMB);
                         if(PARAMS.REPEAT_NUMB > 0){
                             clickLike();
@@ -103,8 +103,6 @@
                                     clearInterval(loopGetDuration);
                                 }
                             }, 1000);
-
-
 
                             var rndDuration = (Math.floor(Math.random() * PARAMS.LISTEN_DURATION_RANGE) + PARAMS.LISTEN_DURATION);
                             setTimeout(seekSliderBar, rndDuration*1000, PARAMS.GOTO_PERCENT, rndDuration);
@@ -154,10 +152,6 @@
 
         setRepeatAll();
 
-        checkArtist();
-
-        checkVideoPaused();
-
         clickLike();
 
         var loopGetDuration_First = setInterval(function(){
@@ -172,7 +166,7 @@
                 setTimeout(seekSliderBar, rndDuration_First*1000, PARAMS.GOTO_PERCENT, rndDuration_First);
                 clearInterval(loopGetDuration_First);
             }
-        },1000);
+        }, 1000);
 
 
     };
